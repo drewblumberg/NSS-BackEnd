@@ -49,7 +49,7 @@ EOS
   end
 
   # name with spaces should not contain Cheers for spaces
-  def test_a_name_with_vowels
+  def test_a_name_with_spaces
     shell_output = ""
     IO.popen('ruby cheers.rb', 'r+') do |pipe|
       pipe.puts("D r e w")
