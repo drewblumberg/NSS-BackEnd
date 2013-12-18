@@ -66,4 +66,25 @@ You're the best, D r e w!
 EOS
     assert_equal shell_output, expected_output
   end
+
+  # name should not have numbers
+  def test_name_should_not_have_numbers
+  exception = assert_raises NameError do
+    shell_output = ""
+    IO.popen('ruby cheers.rb', 'r+') do |pipe|
+      pipe.puts("D r 3 w")
+      pipe.close_write
+      shell_output = pipe.read
+    end
+
+    assert_equal
+  end
+
+
+#     expected_output = <<EOS
+# What's your name?
+# Your name should not contain numbers. Please try again.
+# EOS
+    # raise_error = assert_raise(NameError)
+  end
 end
