@@ -47,4 +47,23 @@ You're the best, Drew!
 EOS
     assert_equal shell_output, expected_output
   end
+
+  # name with spaces should not contain Cheers for spaces
+  def test_a_name_with_vowels
+    shell_output = ""
+    IO.popen('ruby cheers.rb', 'r+') do |pipe|
+      pipe.puts("D r e w")
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    expected_output = <<EOS
+What's your name?
+Give me a... D
+Give me an... R
+Give me an... E
+Give me a... W
+You're the best, D r e w!
+EOS
+    assert_equal shell_output, expected_output
+  end
 end
