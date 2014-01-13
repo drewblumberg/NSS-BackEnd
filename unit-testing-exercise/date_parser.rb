@@ -1,6 +1,6 @@
 class DateParser
   def self.parse(date_string)
-    date_symbol_index = date_string =~ /[\/.-]/
+    date_symbol_index = date_string =~ /[\/.-] cu/
     date_symbol = date_string[date_symbol_index] if date_symbol_index
     if !date_symbol.nil?
       sub_dates = date_string.split(date_symbol)
